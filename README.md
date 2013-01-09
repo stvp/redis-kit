@@ -1,9 +1,15 @@
 redisgreen
 ==========
 
-My usual defaults for new gems.
+Running tests:
 
-TODO: Make a renaming script.
+    cd test/railsapi
+    bundle install
+    ruby -Itest test/unit/redisgreen_test.rb
 
-    sed -i "" "s/mygem/mygem2/g" *.* **/*.* *file
+TODO
+----
+
+* Handle forking servers (Unicorn, etc.)
+* Handle Resque forks (for redis access inside a job)
 

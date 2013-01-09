@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Tyson Tate"]
   s.email       = ["tyson@stovepipestudios.com"]
   s.homepage    = "http://github.com/stvp/redisgreen-rb"
-  s.summary     = "TODO"
-  s.description = "TODO"
+  s.summary     = "simple redis init"
+  s.description = "simple redis init for rails projects"
 
   s.rubyforge_project = "redisgreen"
 
@@ -20,6 +20,9 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency "redis"
   s.add_runtime_dependency "hiredis"
+  s.add_runtime_dependency "connection_pool"
+  s.add_development_dependency "rb-fsevent"
   s.add_development_dependency "guard"
+  s.add_development_dependency "guard-test"
   # s.add_development_dependency "pry"
 end
