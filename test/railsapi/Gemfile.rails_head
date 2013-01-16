@@ -4,7 +4,7 @@ gem "rails", git: "git://github.com/rails/rails.git"
 gem "rails-api", git: "git://github.com/rails-api/rails-api.git"
 gem "rake", "~> 0.9"
 
-gem "easy-redis", path: "../../"
+gem "redis-kit", path: "../../"
 
 group :test do
   gem "pry"

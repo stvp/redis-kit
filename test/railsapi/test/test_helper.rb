@@ -9,7 +9,7 @@ class ActiveSupport::TestCase
 
   def initializer
     Rails.application.initializers.find do |initializer|
-      initializer.name == "easy-redis.setup_redis"
+      initializer.name == "redis-kit.setup_redis"
     end
   end
 end
