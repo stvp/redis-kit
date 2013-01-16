@@ -1,5 +1,6 @@
 dependencies:
-	@cd test/railsapi/ && bundle install
+	@bundle install
+	@cd test/railsapi/ ; bundle install
 
 test:
 	@echo "Running railsapi tests..."

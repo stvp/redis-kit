@@ -18,6 +18,10 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_runtime_dependency "redis"
-  s.add_runtime_dependency "hiredis"
+  s.add_dependency "redis", "~> 3.0"
+  s.add_dependency "hiredis", "~> 0.4"
+  s.add_development_dependency "rake"
+  s.add_development_dependency "rb-fsevent"
+  s.add_development_dependency "guard"
+  s.add_development_dependency "guard-test"
 end

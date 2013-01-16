@@ -1,0 +1,14 @@
+script: make test
+gemfile: test/railsapi/Gemfile
+branches:
+  only:
+    - master
+    - develop
+rvm:
+  - 1.9.2
+  - 1.9.3
+  - 2.0.0
+  - jruby-19mode
+  - rbx-19mode
+before_install: gem install bundler --pre
+

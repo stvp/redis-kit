@@ -44,8 +44,8 @@ PATH
   remote: ../../
   specs:
     easy-redis (0.0.1)
-      hiredis
-      redis
+      hiredis (~> 0.4)
+      redis (~> 3.0)
 
 GEM
   remote: https://rubygems.org/
@@ -111,3 +111,4 @@ DEPENDENCIES
   pry
   rails!
   rails-api
+  rake
