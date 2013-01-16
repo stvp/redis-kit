@@ -6,6 +6,7 @@ gem "redis"
 gem "hiredis"
 
 group :development do
+  gem "rake"
   gem "rb-fsevent"
   gem "guard"
   gem "guard-test"
