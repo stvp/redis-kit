@@ -1,15 +1,17 @@
 redisgreen
 ==========
 
-Running tests:
+Running tests
+-------------
 
-    cd test/railsapi
-    bundle install
-    ruby -Itest test/unit/redisgreen_test.rb
+    make dependencies
+    make
+
+Yep. That's it.
 
 TODO
 ----
 
 * Handle forking servers (Unicorn, etc.)
-* Handle Resque forks (for redis access inside a job)
+* Handle Resque forks (for Redis access inside a job)
 
