@@ -21,3 +21,11 @@ matrix:
   exclude:
     - rvm: 1.9.2
       gemfile: test/railsapi/Gemfile.rails_head
+    - rvm: 2.0.0
+      gemfile: test/railsapi/Gemfile.rails_3_0
+    - rvm: 2.0.0
+      gemfile: test/railsapi/Gemfile.rails_3_1
+    - rvm: ruby-head
+      gemfile: test/railsapi/Gemfile.rails_3_0
+    - rvm: ruby-head
+      gemfile: test/railsapi/Gemfile.rails_3_1
