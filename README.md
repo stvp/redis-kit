@@ -1,7 +1,11 @@
 easy-redis
 ==========
 
-Master: [![Build Status](https://travis-ci.org/stvp/easy-redis.png?branch=master)](undefined) Develop: [![Build Status](https://travis-ci.org/stvp/easy-redis.png?branch=develop)](undefined)
+[![Build Status](https://travis-ci.org/stvp/easy-redis.png?branch=master)](undefined) (master)
+
+[![Build Status](https://travis-ci.org/stvp/easy-redis.png?branch=develop)](undefined) (develop)
+
+[![Dependency Status](https://gemnasium.com/stvp/easy-redis.png)](https://gemnasium.com/stvp/easy-redis)
 
 easy-redis is an (in-progress) gem that greatly simplifies the use of Redis in
 Ruby. It will support the following:
