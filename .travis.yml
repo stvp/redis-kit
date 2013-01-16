@@ -7,9 +7,7 @@ rvm:
   - 1.9.3
   - 2.0.0
   - jruby-19mode
-  - jruby-head
   - rbx-19mode
-  - ruby-head
 before_install: gem install bundler
 gemfile: test/railsapi/Gemfile
 script: "make test"
