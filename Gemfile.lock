@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     redisgreen (0.0.1)
-      connection_pool
       hiredis
       redis
 
@@ -10,7 +9,6 @@ GEM
   remote: http://rubygems.org/
   specs:
     coderay (1.0.8)
-    connection_pool (1.0.0)
     guard (1.6.1)
       listen (>= 0.6.0)
       lumberjack (>= 1.0.2)
