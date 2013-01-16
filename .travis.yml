@@ -1,5 +1,6 @@
 script: make test
 gemfile:
+  - test/railsapi/Gemfile.rails_3_0
   - test/railsapi/Gemfile.rails_3_1
   - test/railsapi/Gemfile.rails_3_2
   - test/railsapi/Gemfile.rails_head
