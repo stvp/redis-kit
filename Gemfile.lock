@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    redisgreen (0.0.1)
+    easy-redis (0.0.1)
       hiredis
       redis
 
@@ -36,10 +36,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  easy-redis!
   guard
   guard-test
   hiredis
   rake
   rb-fsevent
   redis
-  redisgreen!
