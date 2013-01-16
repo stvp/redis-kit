@@ -1,4 +1,5 @@
 dependencies:
+	@bundle install
 	@cd test/railsapi/ && bundle install
 
 test:
