@@ -5,6 +5,9 @@ dependencies:
 	@cd test/railsapi/ ; BUNDLE_GEMFILE=Gemfile.rails_3_2 bundle install
 	@cd test/railsapi/ ; BUNDLE_GEMFILE=Gemfile.rails_head bundle install
 
+ci:
+	cd test/railsapi/ ; bundle exec rake
+
 test:
 	@echo "=================================="
 	@echo "Running tests against Rails 3.0..."
@@ -26,4 +29,4 @@ test:
 	@echo "==================================="
 	@cd test/railsapi/ && BUNDLE_GEMFILE=Gemfile.rails_head bundle exec rake
 
-.PHONY: test dependencies
+.PHONY: test ci dependencies

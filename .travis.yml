@@ -1,4 +1,4 @@
-script: make test
+script: make ci
 gemfile:
   - test/railsapi/Gemfile.rails_3_0
   - test/railsapi/Gemfile.rails_3_1
