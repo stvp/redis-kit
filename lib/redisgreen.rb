@@ -1,10 +1,10 @@
 require "rubygems"
 require "bundler/setup"
 
-require "redisgreen/version"
+require "easy-redis/version"
 
-module RedisGreen
+module EasyRedis
 end
 
-require "redisgreen/railtie" if defined?(Rails)
+require "easy-redis/railtie" if defined?(Rails)
 

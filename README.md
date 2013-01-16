@@ -1,4 +1,4 @@
-redisgreen
+easy-redis
 ==========
 
 Running tests

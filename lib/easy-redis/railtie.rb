@@ -1,9 +1,9 @@
 require "redis"
 require "hiredis"
 
-module RedisGreen
+module EasyRedis
   class Railtie < Rails::Railtie
-    initializer "redisgreen.setup_redis" do |app|
+    initializer "easy-redis.setup_redis" do |app|
       unless app.paths["config/redis"]
         app.paths.add "config/redis", with: "config/redis.yml"
       end
