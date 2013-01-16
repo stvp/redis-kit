@@ -10,8 +10,6 @@ rvm:
   - jruby-head
   - rbx-19mode
   - ruby-head
-gemfile:
-  - Gemfile
-  - test/railsapi/Gemfile
+gemfile: test/railsapi/Gemfile
 script: "make test"
 
