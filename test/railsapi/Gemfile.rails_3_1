@@ -8,5 +8,6 @@ gem "redis-kit", path: "../../"
 
 group :test do
   gem "pry"
+  gem "minitest"
 end
 

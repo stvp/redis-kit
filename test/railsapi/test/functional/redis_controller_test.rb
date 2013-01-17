@@ -1,9 +1,9 @@
 require 'test_helper'
 
 class RedisControllerTest < ActionController::TestCase
-  test "connects to redis" do
+  def test_returns_good_response
     get :ping
-    assert_response :success
-    assert response.body == "true"
+    response.success?.must_equal true
+    response.body.must_equal "true"
   end
 end

@@ -1,15 +1,18 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
+require 'minitest/autorun'
 
 class ActiveSupport::TestCase
   def re_initialize
-    initializer.run( Rails.application )
+    initializers.each do |initializer|
+      initializer.run( Rails.application )
+    end
   end
 
-  def initializer
-    Rails.application.initializers.find do |initializer|
-      initializer.name == "redis-kit.setup_redis"
+  def initializers
+    Rails.application.initializers.select do |initializer|
+      initializer.name =~ /redis-kit/
     end
   end
 end
