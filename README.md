@@ -1,9 +1,9 @@
 RedisKit
 ========
 
-[![Build Status](https://travis-ci.org/stvp/redis-kit.png?branch=master)](undefined) (master)
+[![Build Status](https://travis-ci.org/stvp/redis-kit.png?branch=master)](https://travis-ci.org/stvp/redis-kit) (master)
 
-[![Build Status](https://travis-ci.org/stvp/redis-kit.png?branch=develop)](undefined) (develop)
+[![Build Status](https://travis-ci.org/stvp/redis-kit.png?branch=develop)](https://travis-ci.org/stvp/redis-kit) (develop)
 
 [![Dependency Status](https://gemnasium.com/stvp/redis-kit.png)](https://gemnasium.com/stvp/redis-kit)
 
