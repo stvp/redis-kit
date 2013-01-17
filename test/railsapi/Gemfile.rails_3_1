@@ -1,0 +1,12 @@
+source 'https://rubygems.org'
+
+gem "rails", "~> 3.1"
+gem "rails-api", "~> 0.0.3"
+gem "rake", "~> 0.9"
+
+gem "redis-kit", path: "../../"
+
+group :test do
+  gem "pry"
+end
+

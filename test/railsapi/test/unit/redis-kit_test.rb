@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class EasyRedisConfigYmlTest < ActiveSupport::TestCase
+class RedisKitConfigYmlTest < ActiveSupport::TestCase
   test "load from redis.yml" do
     assert $redis.is_a?( Redis ), "creates a redis connection"
     assert $redis.client.id == "redis://localhost:6379/0", "use the settings from redis.yml"

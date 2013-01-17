@@ -1,17 +1,17 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "easy-redis/version"
+require "redis-kit/version"
 
 Gem::Specification.new do |s|
-  s.name        = "easy-redis"
-  s.version     = EasyRedis::VERSION
+  s.name        = "redis-kit"
+  s.version     = RedisKit::VERSION
   s.authors     = ["Tyson Tate"]
   s.email       = ["tyson@stovepipestudios.com"]
-  s.homepage    = "http://github.com/stvp/easy-redis-rb"
+  s.homepage    = "http://github.com/stvp/redis-kit-rb"
   s.summary     = "simple redis init"
   s.description = "simple redis init for rails projects"
 
-  s.rubyforge_project = "easy-redis"
+  s.rubyforge_project = "redis-kit"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
