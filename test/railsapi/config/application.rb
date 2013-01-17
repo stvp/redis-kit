@@ -40,5 +40,7 @@ module Railsapi
 
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
+
+    config.secret_key_base = "x"
   end
 end
