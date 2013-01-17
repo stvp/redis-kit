@@ -1,5 +1,5 @@
 Railsapi::Application.routes.draw do
-  get "redis/index"
+  get "redis/ping"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,5 +1,5 @@
 class RedisController < ApplicationController
-  def index
+  def ping
     render json: $redis.ping == "PONG"
   end
 end
