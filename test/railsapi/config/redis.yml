@@ -1,3 +1,4 @@
+development:
+  url: redis://localhost:6379
 test:
   url: redis://localhost:6379
-

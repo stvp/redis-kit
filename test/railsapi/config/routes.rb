@@ -1,4 +1,6 @@
 Railsapi::Application.routes.draw do
+  get "redis/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
