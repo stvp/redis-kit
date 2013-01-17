@@ -15,7 +15,6 @@ rvm:
   - ruby-head
   - jruby-19mode
   - rbx-19mode
-  - ree
 before_install: gem install bundler --pre
 matrix:
   exclude:
