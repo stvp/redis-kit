@@ -5,6 +5,7 @@ require "hiredis" if RUBY_ENGINE != "jruby"
 
 module RedisKit
   class MissingConfigError < StandardError ; end
+  class InvalidConfigSyntaxError < StandardError ; end
 
   # Try loading the Redis config from an environment variable or, if there isn't
   # one, a YAML config file.
@@ -46,9 +47,9 @@ module RedisKit
     raise MissingConfigError.new "#{path} doesn't exist. Please add a Redis " \
       "config YAML file or supply an ENV variable like \"REDIS_URL\"."
   rescue Psych::SyntaxError => e
-    raise "A YAML syntax error occurred while parsing #{path}. Please note " \
-      "that YAML must be consistently indented using spaces. Tabs are not " \
-      "allowed.\nError: #{e.message}"
+    raise InvalidConfigSyntaxError.new "A YAML syntax error occurred while " \
+      "parsing #{path}. Please note that YAML must be consistently indented " \
+      "using spaces. Tabs are not allowed.\nError: #{e.message}"
   end
 
   private
