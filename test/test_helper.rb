@@ -2,6 +2,10 @@ require_relative "../lib/redis-kit"
 require 'minitest/spec'
 require 'minitest/autorun'
 
+def jruby?
+  RUBY_ENGINE == "jruby"
+end
+
 def good_config_path
   "test/support/redis.good.yml"
 end
