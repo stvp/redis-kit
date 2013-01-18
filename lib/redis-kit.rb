@@ -38,17 +38,17 @@ module RedisKit
     if config.key?( env )
       symbolize_keys( config[env] )
     else
-      raise MissingConfigError.new <<-TXT
-There is no Redis config for the #{env.inspect} environment in #{path}.
-Either add one or set your Redis URL with an ENV variable like "REDIS_URL".
-      TXT
+      raise MissingConfigError.new "There is no Redis config for the " \
+        "#{env.inspect} environment in #{path}. Either add one or set your "\
+        "Redis URL with an ENV variable like \"REDIS_URL\"."
     end
+  rescue Errno::ENOENT
+    raise MissingConfigError.new "#{path} doesn't exist. Please add a Redis " \
+      "config YAML file or supply an ENV variable like \"REDIS_URL\"."
   rescue Psych::SyntaxError => e
-    raise <<-TXT
-A YAML syntax error occurred while parsing #{path}. Please note that YAML
-must be consistently indented using spaces. Tabs are not allowed.
-Error: #{e.message}"
-TXT
+    raise "A YAML syntax error occurred while parsing #{path}. Please note " \
+      "that YAML must be consistently indented using spaces. Tabs are not " \
+      "allowed.\nError: #{e.message}"
   end
 
   private
