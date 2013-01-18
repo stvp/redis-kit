@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency "redis", "~> 3.0"
-  s.add_dependency "hiredis", "~> 0.4" if RUBY_ENGINE != "java"
+  s.add_dependency "hiredis", "~> 0.4" if RUBY_ENGINE != "jruby"
   s.add_development_dependency "rake"
   s.add_development_dependency "rb-fsevent"
   s.add_development_dependency "guard"

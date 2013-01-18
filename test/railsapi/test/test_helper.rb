@@ -19,10 +19,12 @@ module TestHelpers
 
   def get_socket( redis )
     case connection = redis.client.connection
+    when Redis::Connection::Ruby
+      connection.instance_variable_get( "@sock" )
     when Redis::Connection::Hiredis
       connection.instance_variable_get("@connection").sock
     else
-      connection.instance_variable_get( "@sock" )
+      raise "#{connection} isn't a known connection type."
     end
   end
 
@@ -40,6 +42,9 @@ end
 
 class ActiveSupport::TestCase
   include TestHelpers
+  class << self
+    include TestHelpers
+  end
 end
 
 class TestResqueJob

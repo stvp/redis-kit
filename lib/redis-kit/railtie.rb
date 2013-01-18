@@ -1,5 +1,5 @@
 require "redis"
-require "hiredis" if RUBY_ENGINE != "java"
+require "hiredis" if RUBY_ENGINE != "jruby"
 
 module RedisKit
   class Railtie < Rails::Railtie
@@ -18,7 +18,7 @@ module RedisKit
     # config/redis.yml
     def redis_configuration( app )
       opts = {}
-      opts[:driver] = :hiredis if RUBY_ENGINE != "java"
+      opts[:driver] = :hiredis if RUBY_ENGINE != "jruby"
 
       if url = find_env_variable
         opts.merge!( url: url )
@@ -44,7 +44,7 @@ module RedisKit
       config = YAML.load ERB.new( IO.read( path ) ).result
 
       if config.key?( Rails.env )
-        { driver: :hiredis }.merge( config[Rails.env].symbolize_keys )
+        config[Rails.env].symbolize_keys
       else
         raise "There is no Redis config for the #{Rails.env.inspect} environment in "\
               "#{app.paths["config/redis"].first}.\nEither add one or set your Redis URL " \
