@@ -1,5 +1,5 @@
 require "redis"
-require "hiredis"
+require "hiredis" if RUBY_ENGINE != "java"
 
 module RedisKit
   class Railtie < Rails::Railtie
@@ -17,7 +17,8 @@ module RedisKit
     # Try to load the Redis config from an environment variable or
     # config/redis.yml
     def redis_configuration( app )
-      opts = { driver: :hiredis }
+      opts = {}
+      opts[:driver] = :hiredis if RUBY_ENGINE != "java"
 
       if url = find_env_variable
         opts.merge!( url: url )

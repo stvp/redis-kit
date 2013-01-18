@@ -4,6 +4,10 @@ require 'rails/test_help'
 require 'minitest/autorun'
 
 module TestHelpers
+  def jruby?
+    RUBY_ENGINE == "jruby"
+  end
+
   def initialize_redis_kit
     Rails.application.initializers.select do |initializer|
       initializer.name =~ /redis-kit/

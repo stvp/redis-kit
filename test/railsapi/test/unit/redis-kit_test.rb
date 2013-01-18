@@ -14,7 +14,11 @@ class TestRailsKit < ActiveSupport::TestCase
     initialize_redis_kit
     $redis.class.must_equal Redis
     $redis.client.id.must_equal "redis://localhost:6379/0"
-    $redis.client.connection.class.must_equal Redis::Connection::Hiredis
+    if jruby?
+      $redis.client.connection.class.must_equal Redis::Connection::Ruby
+    else
+      $redis.client.connection.class.must_equal Redis::Connection::Hiredis
+    end
   end
 
   def test_load_url_from_env_variable
@@ -22,7 +26,11 @@ class TestRailsKit < ActiveSupport::TestCase
     initialize_redis_kit
     $redis.class.must_equal Redis
     $redis.client.id.must_equal "redis://127.0.0.1:6379/0"
-    $redis.client.connection.class.must_equal Redis::Connection::Hiredis
+    if jruby?
+      $redis.client.connection.class.must_equal Redis::Connection::Ruby
+    else
+      $redis.client.connection.class.must_equal Redis::Connection::Hiredis
+    end
   end
 
   #

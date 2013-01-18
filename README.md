@@ -8,7 +8,11 @@ RedisKit
 [![Dependency Status](https://gemnasium.com/stvp/redis-kit.png)](https://gemnasium.com/stvp/redis-kit)
 
 RedisKit is an (in-progress) gem that greatly simplifies the use of Redis in
-Ruby in various environments.
+Ruby when used with any of the following:
+
+* Rails
+* Resque
+* (More coming soon...)
 
 Using RedisKit
 --------------
@@ -23,17 +27,21 @@ And run `bundle install`. This will install the RedisKit gem as well as the
 latest stable `redis` and `hiredis` gems.
 
 Redis connections created by RedisKit automatically use [Hiredis][hiredis], the
-the fast and reliable (and official) C client library for Redis.
+the [fast][hiredis_bench] and reliable (and official) C client library for
+Redis. In JRuby, however, RedisKit falls back to the pure-Ruby Redis client
+because JRuby doesn't support C extensions.
 
 [hiredis]: https://github.com/pietern/hiredis-rb
+[hiredis_bench]: https://gist.github.com/894026
 
 Rails
 -----
 
-If you're using Rails, RedisKit will include a [Rails
-initializer](https://github.com/stvp/redis-kit/blob/master/lib/redis-kit/railtie.rb)
+If you're using Rails, RedisKit will include a [Rails initializer][rails_init]
 that will set up a Redis connection when your app loads. This Redis connection
 is available via the `$redis` global.
+
+[rails_init]: https://github.com/stvp/redis-kit/blob/master/lib/redis-kit/railtie.rb
 
 The configuration for Redis can come from one of two places:
 
