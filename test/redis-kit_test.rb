@@ -45,6 +45,12 @@ describe "RedisKit.load_config" do
     end.must_be_kind_of RedisKit::MissingConfigError
   end
 
+  it "returns an error if the config file is blank" do
+    catch_error do
+      RedisKit.load_config( blank_config_path, "test" )
+    end.must_be_kind_of RedisKit::MissingConfigError
+  end
+
   it "returns an error if the config file is invalid" do
     catch_error do
       RedisKit.load_config( invalid_config_path, "test" )

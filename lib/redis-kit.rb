@@ -48,7 +48,11 @@ module RedisKit
     require 'erb'
     config = YAML.load ERB.new( IO.read( path ) ).result
 
-    if config.key?( env )
+    if config == false
+      raise MissingConfigError.new "The Redis configuration file at " \
+        "#{path} is empty. See the RedisKit README for information about how " \
+        "to format this file: https://github.com/stvp/redis-kit"
+    elsif config.key?( env )
       symbolize_keys( config[env] )
     else
       raise MissingConfigError.new "There is no Redis config for the " \

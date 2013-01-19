@@ -18,6 +18,10 @@ def invalid_config_path
   "test/support/redis.invalid.yml"
 end
 
+def blank_config_path
+  "test/support/redis.blank.yml"
+end
+
 def catch_error
   begin
     yield
