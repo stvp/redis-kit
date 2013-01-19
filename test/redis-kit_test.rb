@@ -1,7 +1,7 @@
 require_relative "test_helper"
 
 describe "RedisKit.load_config" do
-  before do
+  after do
     ENV["REDIS_URL"] = nil
   end
 
