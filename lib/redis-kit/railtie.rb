@@ -9,7 +9,7 @@ module RedisKit
       # Set up a new global Redis connection.
       path = app.paths["config/redis"].first
       env = Rails.env
-      $redis = Redis.new( RedisKit.load_config( path, env ) )
+      $redis = RedisKit.new_redis( path, env )
     end
   end
 end

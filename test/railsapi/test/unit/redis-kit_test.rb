@@ -45,6 +45,12 @@ class TestRailsKit < ActiveSupport::TestCase
     error.must_be_kind_of RedisKit::MissingConfigError
   end
 
+  def test_mock_redis_config
+    Rails.application.paths["config/redis"] = "config/redis.mock.yml"
+    initialize_redis_kit
+    $redis.must_be_kind_of MockRedis
+  end
+
   #
   # Resque
   #

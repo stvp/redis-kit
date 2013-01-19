@@ -7,9 +7,21 @@ module RedisKit
   class MissingConfigError < StandardError ; end
   class InvalidConfigSyntaxError < StandardError ; end
 
+  CUSTOM_CONFIG_KEYS = [:mock]
+
+  def self.new_redis( path, env )
+    config = load_config( path, env )
+    if config[:mock]
+      require 'mock_redis'
+      MockRedis.new
+    else
+      Redis.new( config.reject{ |k, v| CUSTOM_CONFIG_KEYS.include?( k ) } )
+    end
+  end
+
   # Try loading the Redis config from an environment variable or, if there isn't
   # one, a YAML config file.
-  def self.load_config( path = "config/redis.yml", env = "development" )
+  def self.load_config( path, env )
     opts = {}
     opts[:driver] = :hiredis if use_hiredis?
 

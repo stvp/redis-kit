@@ -52,3 +52,15 @@ describe "RedisKit.load_config" do
   end
 end
 
+describe "RedisKit.new_redis" do
+  it "builds a regular redis connection" do
+    redis = RedisKit.new_redis( good_config_path, "test" )
+    redis.must_be_kind_of Redis
+  end
+
+  it "builds a mock redis connection" do
+    redis = RedisKit.new_redis( good_config_path, "test_mock" )
+    redis.must_be_kind_of MockRedis
+  end
+end
+
