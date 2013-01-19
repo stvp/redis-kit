@@ -12,7 +12,7 @@ Ruby when used with any of the following:
 
 * Rails
 * Resque
-* (More coming soon...)
+* *More soon...*
 
 Using RedisKit
 --------------
@@ -29,17 +29,17 @@ latest stable `redis` and `hiredis` gems.
 Redis connections created by RedisKit automatically use [Hiredis][hiredis], the
 the [fast][hiredis_bench] and reliable (and official) C client library for
 Redis. In JRuby, however, RedisKit falls back to the pure-Ruby Redis client
-because JRuby doesn't support C extensions.
+because JRuby doesn't support C extensions like hiredis.
 
 [hiredis]: https://github.com/pietern/hiredis-rb
 [hiredis_bench]: https://gist.github.com/894026
 
-Rails
------
+With Rails
+----------
 
-If you're using Rails, RedisKit will include a [Rails initializer][rails_init]
-that will set up a Redis connection when your app loads. This Redis connection
-is available via the `$redis` global.
+If you're using Rails, RedisKit includes a [Rails initializer][rails_init] that
+sets up a global Redis connection when your app loads. This Redis connection is
+available via `$redis`.
 
 [rails_init]: https://github.com/stvp/redis-kit/blob/master/lib/redis-kit/railtie.rb
 
@@ -53,30 +53,33 @@ The configuration for Redis can come from one of two places:
 
     ```yaml
     development:
-      url: redis://localhost:6379
-    test:
-      host: localhost
-      port: 6380
-      password: foobarbaz
-    production:
       url: <%= ENV['REDIS_URL']%>
+    test:
+      mock: true
+    production:
+      host: sprightly-lemur-251.redisgreen.net
+      port: 10092
+      password: foobarbazbiz
     ```
 
     This file will be passed through ERB, so you can include ERB tags as shown
-    above under "production" to evaluate the configuration at runtime.
+    above under "development" to evaluate the configuration at runtime.
+
+    You can also include "mock: true" to use a [MockRedis][mock_redis] object.
+    This should only be used in development and test environments.
 
 [rg]: http://redisgreen.net
+[mock_redis]: https://github.com/causes/mock_redis
 
 If the environment variable doesn't exist, RedisKit will use the settings from
 the config file.
 
-Resque
-------
+With Resque
+-----------
 
-Redis connections must be reconnected after a fork (e.g. when a Resque worker
-processes a job). Resque handles its own Redis connection (`Resque.redis`).
-However, if Resque is using a different connection than your main Redis
-connection (`$redis`)
+If `$redis` is a different Redis connection than `Resque.redis`, RedisKit will
+handle reconnecting the connection after Resque forks. If they're the same
+connection, Resque will handle the connection as usual.
 
 Support
 -------

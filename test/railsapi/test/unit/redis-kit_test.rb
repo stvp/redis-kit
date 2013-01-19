@@ -2,6 +2,7 @@ require 'test_helper'
 
 class TestRailsKit < ActiveSupport::TestCase
   def setup
+    Rails.application.paths["config/redis"] = "config/redis.yml"
     ENV["REDIS_URL"] = nil
     $redis.flushall
   end
@@ -31,6 +32,23 @@ class TestRailsKit < ActiveSupport::TestCase
     else
       $redis.client.connection.class.must_equal Redis::Connection::Hiredis
     end
+  end
+
+  def test_load_bad_config_file
+    Rails.application.paths["config/redis"] = "/tmp/this_doesnt_exist.yml"
+    error = nil
+    begin
+      initialize_redis_kit
+    rescue => e
+      error = e
+    end
+    error.must_be_kind_of RedisKit::MissingConfigError
+  end
+
+  def test_mock_redis_config
+    Rails.application.paths["config/redis"] = "config/redis.mock.yml"
+    initialize_redis_kit
+    $redis.must_be_kind_of MockRedis
   end
 
   #

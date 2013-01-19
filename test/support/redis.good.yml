@@ -1,0 +1,7 @@
+test:
+  mock: false
+  url: "redis://good:1234"
+test_erb:
+  url: <%= "redis://good:1234" %>
+test_mock:
+  mock: true

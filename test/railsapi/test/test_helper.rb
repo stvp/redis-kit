@@ -14,7 +14,7 @@ module TestHelpers
     end.each do |initializer|
       initializer.run( Rails.application )
     end
-    $redis.client.connect
+    $redis.client.connect if $redis.client.respond_to?( :connect )
   end
 
   def get_socket( redis )
@@ -30,7 +30,7 @@ module TestHelpers
 
   def initialize_resque
     Resque.redis = $redis
-    Resque.redis.client.connect
+    Resque.redis.client.connect if Resque.redis.client.respond_to?( :connect )
   end
 
   def resque_worker
