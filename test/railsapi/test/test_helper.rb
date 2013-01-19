@@ -31,6 +31,8 @@ module TestHelpers
   def initialize_resque
     Resque.redis = $redis
     Resque.redis.client.connect if Resque.redis.client.respond_to?( :connect )
+    Resque.after_fork = nil
+    RedisKit::Resque.setup
   end
 
   def resque_worker

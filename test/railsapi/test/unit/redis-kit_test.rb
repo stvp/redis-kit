@@ -56,6 +56,18 @@ class TestRailsKit < ActiveSupport::TestCase
   #
 
   unless jruby?
+    def test_not_clobbering_resque_hooks
+      initialize_redis_kit
+      initialize_resque
+      Resque.after_fork do |*args|
+        $redis.set( "called", true )
+      end
+      RedisKit::Resque.setup
+      Resque.enqueue(TestResqueJob)
+      resque_worker.work(0)
+      $redis.get( "called" ).must_equal "true"
+    end
+
     def test_resque_using_same_connection
       initialize_redis_kit
       initialize_resque
