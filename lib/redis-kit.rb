@@ -1,5 +1,6 @@
 require "rubygems"
 require "bundler/setup"
+require "yaml"
 require "redis"
 require "hiredis" if RUBY_ENGINE != "jruby"
 
