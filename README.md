@@ -1,10 +1,6 @@
 RedisKit
 ========
 
-[![Build Status](https://travis-ci.org/stvp/redis-kit.png?branch=master)](https://travis-ci.org/stvp/redis-kit) (master)
-
-[![Build Status](https://travis-ci.org/stvp/redis-kit.png?branch=develop)](https://travis-ci.org/stvp/redis-kit) (develop)
-
 [![Dependency Status](https://gemnasium.com/stvp/redis-kit.png)](https://gemnasium.com/stvp/redis-kit)
 
 RedisKit is an (in-progress) gem that greatly simplifies the use of Redis in
