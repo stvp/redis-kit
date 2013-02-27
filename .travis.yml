@@ -9,7 +9,6 @@ branches:
     - master
     - develop
 rvm:
-  - 1.9.2
   - 1.9.3
   - 2.0.0
   - ruby-head
@@ -18,8 +17,6 @@ rvm:
 before_install: gem install bundler --pre
 matrix:
   exclude:
-    - rvm: 1.9.2
-      gemfile: test/railsapi/Gemfile.rails_head
     - rvm: 2.0.0
       gemfile: test/railsapi/Gemfile.rails_3_0
     - rvm: 2.0.0
