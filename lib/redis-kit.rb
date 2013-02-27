@@ -63,10 +63,14 @@ module RedisKit
   rescue Errno::ENOENT
     raise MissingConfigError.new "#{path} doesn't exist. Please add a Redis " \
       "config YAML file or supply an ENV variable like \"REDIS_URL\"."
-  rescue Psych::SyntaxError => e
-    raise InvalidConfigSyntaxError.new "A YAML syntax error occurred while " \
-      "parsing #{path}. Please note that YAML must be consistently indented " \
-      "using spaces. Tabs are not allowed.\nError: #{e.message}"
+  rescue Exception => e
+    if Object.const_defined?('Psych') && e.class == Psych::SyntaxError
+      raise InvalidConfigSyntaxError.new "A YAML syntax error occurred while " \
+        "parsing #{path}. Please note that YAML must be consistently indented " \
+        "using spaces. Tabs are not allowed.\nError: #{e.message}"
+    else
+      raise
+    end
   end
 
   private
