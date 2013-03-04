@@ -86,7 +86,7 @@ Support
 
 RedisKit officially supports the following Rubies:
 
-* Ruby >= 1.9.2
+* Ruby >= 1.9.3
 * JRuby >= 1.7.0 (in 1.9 mode)
 * Rubinius >= 1.2.0 (in 1.9 mode)
 
