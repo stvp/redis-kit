@@ -12,4 +12,6 @@ rvm:
   - ruby-head
   - jruby-19mode
   - rbx-19mode
-before_install: gem install bundler --pre
+before_install:
+  - gem install bundler --version '= 1.3.1'
+
