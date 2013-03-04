@@ -92,7 +92,7 @@ RedisKit officially supports the following Rubies:
 
 And the following libraries:
 
-* Rails >= 3.0.0 (including Rails 4)
+* Rails 3.2, 4.0
 * Resque >= 1.6
 
 Development
