@@ -70,3 +70,12 @@ describe "RedisKit.new_redis" do
   end
 end
 
+describe "RedisKit.redis" do
+  it "stores a global Redis connection" do
+    redis = RedisKit.new_redis( good_config_path, "test" )
+    RedisKit.redis.must_be_nil
+    RedisKit.redis = redis
+    RedisKit.redis.must_equal redis
+  end
+end
+

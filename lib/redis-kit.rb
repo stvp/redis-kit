@@ -10,6 +10,14 @@ module RedisKit
 
   CUSTOM_CONFIG_KEYS = [:mock]
 
+  class << self
+    attr_writer :redis
+
+    def redis
+      @redis || $redis
+    end
+  end
+
   def self.new_redis( path, env )
     config = load_config( path, env )
     if config[:mock]
