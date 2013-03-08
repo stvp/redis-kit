@@ -1,4 +1,4 @@
-require_relative "test_helper"
+require "test_helper"
 
 describe "RedisKit.load_config" do
   after do

@@ -21,8 +21,9 @@ Gem::Specification.new do |s|
   s.add_dependency "redis", "~> 3.0.0"
   s.add_dependency "hiredis", "~> 0.4.0" if RUBY_ENGINE != "jruby"
   s.add_dependency "mock_redis", "~> 0.6.0"
-  s.add_development_dependency "rake"
-  s.add_development_dependency "rb-fsevent"
-  s.add_development_dependency "guard"
-  s.add_development_dependency "guard-test"
+  s.add_development_dependency "rake", "~> 10.0.0"
+  s.add_development_dependency "rb-fsevent", "~> 0.9.0"
+  s.add_development_dependency "guard", "~> 1.6.0"
+  s.add_development_dependency "guard-minitest", "~> 0.5.0"
 end
+
