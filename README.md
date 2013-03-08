@@ -14,6 +14,11 @@ Ruby when used with any of the following:
 * Resque
 * *More soon...*
 
+It also includes some (optional) classes that support common Redis uses:
+
+* RedisKit::Cache (`require 'redis-kit/cache') - Cache the results of code
+  blocks.
+
 Using RedisKit
 --------------
 
@@ -81,8 +86,84 @@ If `$redis` is a different Redis connection than `Resque.redis`, RedisKit will
 handle reconnecting the connection after Resque forks. If they're the same
 connection, Resque will handle the connection as usual.
 
+Extras
+======
+
+RedisKit::Cache
+---------------
+
+RedisKit::Cache is a simple caching helper that caches values in Redis with a
+configurable timeout.
+
+```ruby
+require 'redis-kit'
+require 'redis-kit/cache'
+
+# Result of block is cached for 10 seconds
+RedisKit::Cache.cached("my-key", 10) do
+  # ...
+end
+
+# Manually expire the cached value:
+RedisKit::Cache.expire("my-key")
+```
+
+The RedisKit::Cache::Helper helper module makes working with cached values in a
+class easy:
+
+```ruby
+require 'redis-kit'
+require 'redis-kit/cache'
+
+class MyCachedClass
+  include RedisKit::Cache::Helper
+
+  # This method's result will be cached in Redis for 10 seconds.
+  def expensive_stuff
+    cached("#{self.id}", 10) do
+      # ...
+    end
+  end
+
+  # Manually expire cached values, if needed:
+  def reset_stuff
+    expire("${self.id}")
+  end
+end
+```
+
+(Both the `cached` method and the `expire` methods are available at the class and
+instance levels.)
+
+You can set a class-wide namespace and default timeout:
+
+```ruby
+class MyCachedClass
+  include RedisKit::Cache::Helper
+  cache_timeout 600 # optional, default: 60 seconds
+  cache_namespace "my-cached-class" # optional, default: no namespace
+
+  # Cached for 10 minutes
+  def expensive_stuff
+    cached("#{self.id}") do
+      # ...
+    end
+  end
+end
+```
+
+Keep in mind that values are stored (and returned) by Redis as strings, so you
+may need to serialize / deserialize your data manually:
+
+```ruby
+value = cached("thing") do
+  JSON.dump(["cool", "values"])
+end
+value = JSON.load(value)
+```
+
 Support
--------
+=======
 
 RedisKit officially supports the following Rubies:
 
@@ -96,7 +177,7 @@ And the following libraries:
 * Resque >= 1.6
 
 Development
------------
+===========
 
 Set up and run tests with:
 
@@ -104,7 +185,7 @@ Set up and run tests with:
     make test
 
 TODO
-----
+====
 
 * Add generators for common files
   * Resque initializer

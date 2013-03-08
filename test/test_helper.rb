@@ -1,6 +1,6 @@
-require_relative "../lib/redis-kit"
 require 'minitest/spec'
 require 'minitest/autorun'
+require 'redis-kit'
 
 def jruby?
   RUBY_ENGINE == "jruby"
