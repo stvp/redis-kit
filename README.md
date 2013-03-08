@@ -187,6 +187,8 @@ Set up and run tests with:
 TODO
 ====
 
+* Add block support to RedisKit::Cache's cache_namespace: `cache_namespace {
+  |instance_or_class| ... }`
 * Add generators for common files
   * Resque initializer
   * Unicorn config (after fork hook)
