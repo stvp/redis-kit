@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    redis-kit (0.0.2)
+    redis-kit (0.0.3)
       hiredis (~> 0.4.0)
       mock_redis (~> 0.6.0)
       redis (~> 3.0.0)
@@ -22,7 +22,7 @@ GEM
     listen (0.7.3)
     lumberjack (1.0.2)
     method_source (0.8.1)
-    mock_redis (0.6.4)
+    mock_redis (0.6.6)
     pry (0.9.12)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -34,7 +34,7 @@ GEM
       spoon (~> 0.0)
     rake (10.0.3)
     rb-fsevent (0.9.3)
-    redis (3.0.3)
+    redis (3.0.4)
     slop (3.4.3)
     spoon (0.0.1)
     terminal-table (1.4.5)
