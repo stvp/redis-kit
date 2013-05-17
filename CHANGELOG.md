@@ -1,3 +1,9 @@
+0.0.4 (May 17th, 2013)
+----------------------
+
+  * Add support for Resque 1.24.x. This change is fully backwards-compatible
+    with Resque 1.23.x and below.
+
 0.0.3 (March 8th, 2013)
 -----------------------
 
