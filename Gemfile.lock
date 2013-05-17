@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    redis-kit (0.0.3)
+    redis-kit (0.0.4)
       hiredis (~> 0.4.0)
       mock_redis (~> 0.6.0)
       redis (~> 3.0.0)

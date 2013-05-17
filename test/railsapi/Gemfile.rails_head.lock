@@ -43,7 +43,7 @@ GIT
 PATH
   remote: ../../
   specs:
-    redis-kit (0.0.3)
+    redis-kit (0.0.4)
       hiredis (~> 0.4.0)
       mock_redis (~> 0.6.0)
       redis (~> 3.0.0)
@@ -60,7 +60,6 @@ GEM
     erubis (2.7.0)
     hike (1.2.1)
     hiredis (0.4.5)
-    hiredis (0.4.5-java)
     i18n (0.6.4)
     json (1.7.7)
     json (1.7.7-java)
