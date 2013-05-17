@@ -5,15 +5,20 @@
 
 module RedisKit
   module Resque
+    # Don't clobber any existing hooks. Resque 1.24 changed the way hooks are
+    # stored, so we have to branch for that.
     def self.setup
-      # Don't clobber any existing hooks.
-      if existing_hook = ::Resque.after_fork
+      existing_hook = ::Resque.after_fork
+
+      if existing_hook == nil || existing_hook.is_a?(Array)
+        # resque >= 1.24 (or <= 1.23 with no existing hook)
         ::Resque.after_fork do |job|
-          existing_hook.call( job )
           check_redis
         end
-      else
+      elsif existing_hook.is_a?(Proc)
+        # resque <= 1.23
         ::Resque.after_fork do |job|
+          existing_hook.call( job )
           check_redis
         end
       end
