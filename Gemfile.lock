@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    redis-kit (0.0.4)
+    redis-kit (0.0.5)
       hiredis (~> 0.4.0)
       mock_redis (~> 0.6.0)
       redis (~> 3.0.0)
@@ -23,7 +23,6 @@ GEM
     guard-minitest (0.5.0)
       guard (>= 0.4)
     hiredis (0.4.5)
-    hiredis (0.4.5-java)
     listen (2.0.0)
       celluloid (>= 0.15.1)
       rb-fsevent (>= 0.9.3)
