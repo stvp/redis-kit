@@ -1,3 +1,5 @@
+services:
+  - redis
 script: make ci
 gemfile:
   - test/railsapi/Gemfile.rails_3_2
