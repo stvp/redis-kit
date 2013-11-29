@@ -1,3 +1,8 @@
+0.0.6 (November 29th, 2013)
+---------------------------
+
+  * Update all gem dependencies.
+
 0.0.5 (October 7th, 2013)
 -------------------------
 
