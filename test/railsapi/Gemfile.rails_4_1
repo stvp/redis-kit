@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "rails", "~> 3.2.0"
+gem "rails", "~> 4.1.0"
 gem "rails-api", "~> 0.2.1"
 gem "rake", "~> 0.9.0"
 gem "resque", "~> 1.25.0"
@@ -9,6 +9,6 @@ gem "redis-kit", path: "../../"
 
 group :test do
   gem "pry"
-  gem "minitest", "~> 4.0"
+  gem "minitest", "~> 5.0"
 end
 

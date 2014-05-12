@@ -1,3 +1,8 @@
+0.1.0
+-----
+
+  * Update redis, hiredis, and mock_redis dependencies.
+
 0.0.6 (November 29th, 2013)
 ---------------------------
 
